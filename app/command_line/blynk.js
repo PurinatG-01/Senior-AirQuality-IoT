@@ -10,7 +10,7 @@ setInterval(() => {
   
   const getData = async ()=>{
     try{
-      console.log(`---------------------- ${loop_count++} ---------------------- `);
+      
       let res0 = await fetch(`http://blynk-cloud.com/${auth_token}/get/v0`);
       let v0 = await res0.json();
       
@@ -29,7 +29,7 @@ setInterval(() => {
       let v6 = await res6.json();
       let res7 = await fetch(`http://blynk-cloud.com/${auth_token}/get/v7`);
       let v7 = await res7.json();
-
+      console.log(`---------------------- ${loop_count++} ---------------------- `);
       console.log(`CO2          : ${v0[0]} ppm`);
 
 
@@ -38,9 +38,9 @@ setInterval(() => {
       console.log(`Pressure     : ${v3[0]} Pa`);
       console.log(`Gas          : ${v4[0]} mOhm`);
 
-      console.log(`PM 1.0        : ${v5[0]} ppm`);
-      console.log(`PM 2.5        : ${v6[0]} ppm`);
-      console.log(`PM 10.0       : ${v7[0]} ppm`);
+      console.log(`PM 1.0        : ${v5[0]} ug/m3`);
+      console.log(`PM 2.5        : ${v6[0]} ug/m3`);
+      console.log(`PM 10.0       : ${v7[0]} ug/m3`);
     }catch(error){
       console.error(`> error : ${error}`);
     }

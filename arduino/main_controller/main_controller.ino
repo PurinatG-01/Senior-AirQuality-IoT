@@ -1,4 +1,4 @@
-// ----------------------- Library -------------------------------
+  // ----------------------- Library -------------------------------
 
 // Protothreading
 #include <TimedAction.h>
@@ -29,8 +29,8 @@ int loop_count = 0;
 
 
 // WiFi
-#define SECRET_SSID "NB-001 3735"
-#define SECRET_PASS "1122334455"
+#define SECRET_SSID "PurinatG"
+#define SECRET_PASS "12345678"
 char ssid[] = SECRET_SSID;
 char pass[] = SECRET_PASS;
 
@@ -85,7 +85,7 @@ int mg_process(){
   Serial.println("\n");
 
   // Blynk
-//  Blynk.virtualWrite(V0,co2);
+  Blynk.virtualWrite(V0,co2);
 
   return co2;
 }
@@ -115,10 +115,10 @@ void bme_process(){
   int rGas = gas/100.0;
   
   // Blynk write data
-//  Blynk.virtualWrite(V1, rTemp);
-//  Blynk.virtualWrite(V2, rHumidity);
-//  Blynk.virtualWrite(V3, rPressure);
-//  Blynk.virtualWrite(V4, rGas);
+  Blynk.virtualWrite(V1, rTemp);
+  Blynk.virtualWrite(V2, rHumidity);
+  Blynk.virtualWrite(V3, rPressure);
+  Blynk.virtualWrite(V4, rGas);
   
 }
 
@@ -143,9 +143,9 @@ void pms_process(){
   }
 
 // Blynk
-//  Blynk.virtualWrite(V5, data.PM_AE_UG_1_0);
-//  Blynk.virtualWrite(V6, data.PM_AE_UG_2_5);
-//  Blynk.virtualWrite(V7, data.PM_AE_UG_10_0);
+  Blynk.virtualWrite(V5, data.PM_AE_UG_1_0);
+  Blynk.virtualWrite(V6, data.PM_AE_UG_2_5);
+  Blynk.virtualWrite(V7, data.PM_AE_UG_10_0);
   
 
 }
@@ -196,11 +196,12 @@ void setup() {
   Blynk.begin(auth, ssid, pass);
 
 // --------------- WiFi + Thinger ------------
-  thing.add_wifi(SECRET_SSID, SECRET_PASS);
+//  thing.add_wifi(SECRET_SSID, SECRET_PASS);
 
-  thing["TestData"] >> [](pson &out){
-    out["Data_1"] = 1;
-  };
+//  thing["TestData"] >> [](pson &out){
+//    out["Data_2"] = mg_process();
+//    
+//  };
   
 //  
 }
@@ -216,20 +217,21 @@ void loop() {
 //  Blynk function invoke
   Blynk.run();
 // Thinger function invoke
-  thing.handle();
+//  thing.handle();
 
 // --------  [ MG811 : A0 Pin : C02 sensor ] --------
-//  mgAction.check();
+  mgAction.check();
 
 // -------- [ BME680 : A4,A5 Pin : Temperature, Humidity, Pressure, Gas ] ---------
-//  bmeAction.check();
+  bmeAction.check();
 
 // -------- [ PMS7003 : TX,RX Pin : PM 1.0, 2.5, 10.0 ] ---------
-//  pmsAction.check();
+  pmsAction.check();
 
-    Serial.println("Start");
-  thing.write_bucket("Arduino_1_bucket", "TestData");
+//  Serial.println("Start");
+//  thing.write_bucket("Arduino_1_bucket", "TestData");
+//  thing.stream(thing["TestData"]);
 
-  delay(3000);
+//  delay(2000);
 
 }

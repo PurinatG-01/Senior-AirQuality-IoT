@@ -14,95 +14,95 @@ setInterval(function () {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
-            console.log("---------------------- ".concat(loop_count++, " ---------------------- "));
-            _context.next = 4;
+            _context.next = 3;
             return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v0")));
 
-          case 4:
+          case 3:
             res0 = _context.sent;
-            _context.next = 7;
+            _context.next = 6;
             return regeneratorRuntime.awrap(res0.json());
 
-          case 7:
+          case 6:
             v0 = _context.sent;
-            _context.next = 10;
+            _context.next = 9;
             return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v1")));
 
-          case 10:
+          case 9:
             res1 = _context.sent;
-            _context.next = 13;
+            _context.next = 12;
             return regeneratorRuntime.awrap(res1.json());
 
-          case 13:
+          case 12:
             v1 = _context.sent;
-            _context.next = 16;
+            _context.next = 15;
             return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v2")));
 
-          case 16:
+          case 15:
             res2 = _context.sent;
-            _context.next = 19;
+            _context.next = 18;
             return regeneratorRuntime.awrap(res2.json());
 
-          case 19:
+          case 18:
             v2 = _context.sent;
-            _context.next = 22;
+            _context.next = 21;
             return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v3")));
 
-          case 22:
+          case 21:
             res3 = _context.sent;
-            _context.next = 25;
+            _context.next = 24;
             return regeneratorRuntime.awrap(res3.json());
 
-          case 25:
+          case 24:
             v3 = _context.sent;
-            _context.next = 28;
+            _context.next = 27;
             return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v4")));
 
-          case 28:
+          case 27:
             res4 = _context.sent;
-            _context.next = 31;
+            _context.next = 30;
             return regeneratorRuntime.awrap(res4.json());
 
-          case 31:
+          case 30:
             v4 = _context.sent;
-            _context.next = 34;
+            _context.next = 33;
             return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v5")));
 
-          case 34:
+          case 33:
             res5 = _context.sent;
-            _context.next = 37;
+            _context.next = 36;
             return regeneratorRuntime.awrap(res5.json());
 
-          case 37:
+          case 36:
             v5 = _context.sent;
-            _context.next = 40;
+            _context.next = 39;
             return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v6")));
 
-          case 40:
+          case 39:
             res6 = _context.sent;
-            _context.next = 43;
+            _context.next = 42;
             return regeneratorRuntime.awrap(res6.json());
 
-          case 43:
+          case 42:
             v6 = _context.sent;
-            _context.next = 46;
+            _context.next = 45;
             return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v7")));
 
-          case 46:
+          case 45:
             res7 = _context.sent;
-            _context.next = 49;
+            _context.next = 48;
             return regeneratorRuntime.awrap(res7.json());
 
-          case 49:
+          case 48:
             v7 = _context.sent;
+            console.log("---------------------- ".concat(loop_count++, " ---------------------- "));
             console.log("CO2          : ".concat(v0[0], " ppm"));
             console.log("Temperature  : ".concat(v1[0], " C"));
             console.log("Humidity     : ".concat(v2[0], " %"));
             console.log("Pressure     : ".concat(v3[0], " Pa"));
             console.log("Gas          : ".concat(v4[0], " mOhm"));
-            console.log("PM 1.0        : ".concat(v5[0], " ppm"));
-            console.log("PM 2.5        : ".concat(v6[0], " ppm"));
-            console.log("PM 10.0       : ".concat(v7[0], " ppm"));
+            console.log("PM 1.0        : ".concat(v5[0], " ug/m3"));
+            console.log("PM 2.5        : ".concat(v6[0], " ug/m3"));
+            console.log("PM 10.0       : ".concat(v7[0], " ug/m3"));
             _context.next = 63;
             break;
 
