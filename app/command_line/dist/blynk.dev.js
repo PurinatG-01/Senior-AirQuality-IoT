@@ -8,91 +8,101 @@ console.log("--------------------- Air Quality Sensors ---------------------");
 var loop_count = 0;
 setInterval(function () {
   var getData = function getData() {
-    var res0, v0, res1, v1, res2, v2, res3, v3, res4, v4, res5, v5, res6, v6, res7, v7;
+    var resProject, dataProject, res0, v0, res1, v1, res2, v2, res3, v3, res4, v4, res5, v5, res6, v6, res7, v7;
     return regeneratorRuntime.async(function getData$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v0")));
+            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/project")));
 
           case 3:
-            res0 = _context.sent;
+            resProject = _context.sent;
             _context.next = 6;
-            return regeneratorRuntime.awrap(res0.json());
+            return regeneratorRuntime.awrap(resProject.json());
 
           case 6:
-            v0 = _context.sent;
+            dataProject = _context.sent;
             _context.next = 9;
-            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v1")));
+            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v0")));
 
           case 9:
-            res1 = _context.sent;
+            res0 = _context.sent;
             _context.next = 12;
-            return regeneratorRuntime.awrap(res1.json());
+            return regeneratorRuntime.awrap(res0.json());
 
           case 12:
-            v1 = _context.sent;
+            v0 = _context.sent;
             _context.next = 15;
-            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v2")));
+            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v1")));
 
           case 15:
-            res2 = _context.sent;
+            res1 = _context.sent;
             _context.next = 18;
-            return regeneratorRuntime.awrap(res2.json());
+            return regeneratorRuntime.awrap(res1.json());
 
           case 18:
-            v2 = _context.sent;
+            v1 = _context.sent;
             _context.next = 21;
-            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v3")));
+            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v2")));
 
           case 21:
-            res3 = _context.sent;
+            res2 = _context.sent;
             _context.next = 24;
-            return regeneratorRuntime.awrap(res3.json());
+            return regeneratorRuntime.awrap(res2.json());
 
           case 24:
-            v3 = _context.sent;
+            v2 = _context.sent;
             _context.next = 27;
-            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v4")));
+            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v3")));
 
           case 27:
-            res4 = _context.sent;
+            res3 = _context.sent;
             _context.next = 30;
-            return regeneratorRuntime.awrap(res4.json());
+            return regeneratorRuntime.awrap(res3.json());
 
           case 30:
-            v4 = _context.sent;
+            v3 = _context.sent;
             _context.next = 33;
-            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v5")));
+            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v4")));
 
           case 33:
-            res5 = _context.sent;
+            res4 = _context.sent;
             _context.next = 36;
-            return regeneratorRuntime.awrap(res5.json());
+            return regeneratorRuntime.awrap(res4.json());
 
           case 36:
-            v5 = _context.sent;
+            v4 = _context.sent;
             _context.next = 39;
-            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v6")));
+            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v5")));
 
           case 39:
-            res6 = _context.sent;
+            res5 = _context.sent;
             _context.next = 42;
-            return regeneratorRuntime.awrap(res6.json());
+            return regeneratorRuntime.awrap(res5.json());
 
           case 42:
-            v6 = _context.sent;
+            v5 = _context.sent;
             _context.next = 45;
-            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v7")));
+            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v6")));
 
           case 45:
-            res7 = _context.sent;
+            res6 = _context.sent;
             _context.next = 48;
-            return regeneratorRuntime.awrap(res7.json());
+            return regeneratorRuntime.awrap(res6.json());
 
           case 48:
+            v6 = _context.sent;
+            _context.next = 51;
+            return regeneratorRuntime.awrap(fetch("http://blynk-cloud.com/".concat(auth_token, "/get/v7")));
+
+          case 51:
+            res7 = _context.sent;
+            _context.next = 54;
+            return regeneratorRuntime.awrap(res7.json());
+
+          case 54:
             v7 = _context.sent;
             console.log("---------------------- ".concat(loop_count++, " ---------------------- "));
             console.log("CO2          : ".concat(v0[0], " ppm"));
@@ -102,21 +112,22 @@ setInterval(function () {
             console.log("Gas          : ".concat(v4[0], " mOhm"));
             console.log("PM 1.0        : ".concat(v5[0], " ug/m3"));
             console.log("PM 2.5        : ".concat(v6[0], " ug/m3"));
-            console.log("PM 10.0       : ".concat(v7[0], " ug/m3"));
-            _context.next = 63;
+            console.log("PM 10.0       : ".concat(v7[0], " ug/m3")); // console.log(dataProject);
+
+            _context.next = 69;
             break;
 
-          case 60:
-            _context.prev = 60;
+          case 66:
+            _context.prev = 66;
             _context.t0 = _context["catch"](0);
             console.error("> error : ".concat(_context.t0));
 
-          case 63:
+          case 69:
           case "end":
             return _context.stop();
         }
       }
-    }, null, null, [[0, 60]]);
+    }, null, null, [[0, 66]]);
   };
 
   getData();

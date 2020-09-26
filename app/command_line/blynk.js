@@ -3,17 +3,19 @@ const fetch = require("node-fetch");
 let result = {};
 const auth_token = "GS3mZFpy8AJTO97oFDyxUd8d_sujg_d_";
 
-
 console.log("--------------------- Air Quality Sensors ---------------------");
 let loop_count = 0;
 setInterval(() => {
-  
-  const getData = async ()=>{
-    try{
-      
+  const getData = async () => {
+    try {
+      let resProject = await fetch(
+        `http://blynk-cloud.com/${auth_token}/project`
+      );
+      let dataProject = await resProject.json();
+
       let res0 = await fetch(`http://blynk-cloud.com/${auth_token}/get/v0`);
       let v0 = await res0.json();
-      
+
       let res1 = await fetch(`http://blynk-cloud.com/${auth_token}/get/v1`);
       let v1 = await res1.json();
       let res2 = await fetch(`http://blynk-cloud.com/${auth_token}/get/v2`);
@@ -21,7 +23,7 @@ setInterval(() => {
       let res3 = await fetch(`http://blynk-cloud.com/${auth_token}/get/v3`);
       let v3 = await res3.json();
       let res4 = await fetch(`http://blynk-cloud.com/${auth_token}/get/v4`);
-      let v4 = await res4.json();  
+      let v4 = await res4.json();
 
       let res5 = await fetch(`http://blynk-cloud.com/${auth_token}/get/v5`);
       let v5 = await res5.json();
@@ -32,7 +34,6 @@ setInterval(() => {
       console.log(`---------------------- ${loop_count++} ---------------------- `);
       console.log(`CO2          : ${v0[0]} ppm`);
 
-
       console.log(`Temperature  : ${v1[0]} C`);
       console.log(`Humidity     : ${v2[0]} %`);
       console.log(`Pressure     : ${v3[0]} Pa`);
@@ -41,11 +42,11 @@ setInterval(() => {
       console.log(`PM 1.0        : ${v5[0]} ug/m3`);
       console.log(`PM 2.5        : ${v6[0]} ug/m3`);
       console.log(`PM 10.0       : ${v7[0]} ug/m3`);
-    }catch(error){
+
+      // console.log(dataProject);
+    } catch (error) {
       console.error(`> error : ${error}`);
     }
-    
-
   };
   getData();
 }, 2000);

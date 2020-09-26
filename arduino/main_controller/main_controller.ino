@@ -16,7 +16,7 @@
 #include <BlynkSimpleWiFiNINA.h>
 
 // Thinger
-#include <ThingerWiFiNINA.h>
+//#include <ThingerWiFiNINA.h>
 
 // ------------------- Global Variable ---------------------------
 // Sensor Instance
@@ -36,13 +36,16 @@ char pass[] = SECRET_PASS;
 
 // Blynk
 #define BLYNK_PRINT Serial
-char auth[] = "GS3mZFpy8AJTO97oFDyxUd8d_sujg_d_";
+// Blynk cloud
+//char auth[] = "GS3mZFpy8AJTO97oFDyxUd8d_sujg_d_";
+// Local cloud
+char auth[] = "XYS9rw2wCXCqBN8yq9TnJw_4zy0p5A5j";
 
 // Thinger
-#define USERNAME "senior2020airquality"
-#define DEVICE_ID "Arduino_1"
-#define DEVICE_CREDENTIAL "m&z-B@M!ZyzT"
-ThingerWiFiNINA thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
+//#define USERNAME "senior2020airquality"
+//#define DEVICE_ID "Arduino_1"
+//#define DEVICE_CREDENTIAL "m&z-B@M!ZyzT"
+//ThingerWiFiNINA thing(USERNAME, DEVICE_ID, DEVICE_CREDENTIAL);
 
 
 // ----------------------------- Utils function -----------------------------
@@ -168,7 +171,7 @@ void setup() {
   
 //  Setup Sensor
 // ---------MG811----------
-  co2Sensor.calibrate();
+//  co2Sensor.calibrate();
     
 // --------BME680----------
   while (!BME680.begin(I2C_STANDARD_MODE)) // Start BME680 using I2C protocol
@@ -193,7 +196,7 @@ void setup() {
   Serial1.begin(9600);
 
 // --------------- WiFi + Blynk --------------
-  Blynk.begin(auth, ssid, pass);
+  Blynk.begin(auth, ssid, pass, IPAddress(34,69,148,234));
 
 // --------------- WiFi + Thinger ------------
 //  thing.add_wifi(SECRET_SSID, SECRET_PASS);
