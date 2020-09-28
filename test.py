@@ -1,6 +1,6 @@
 
 # Check the versions of libraries
-
+# test git with new macbook pro installation
 # Python version
 import sys
 print('Python: {}'.format(sys.version))
